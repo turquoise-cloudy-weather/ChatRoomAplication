@@ -12,7 +12,7 @@ socket_server.bind((host, port))
 def handle_clients(connection, addr):
     name = connection.recv(1024).decode()
     welcome = "Welcome " + name + ". You can type #quit if you ever want to leave the Chat Room"
-    connection.recv(bytes(welcome, "utf8"))
+    connection.send(bytes(welcome, "utf8"))
     msg = name + " has recently joined the chatroom"
     broadcast(bytes(msg,"utf8"))
     clients[connection] = name
@@ -25,7 +25,7 @@ def handle_clients(connection, addr):
             connection.send(bytes("#quit", "utf8"))
             connection.close()
             del clients[connection]
-            broadcast(bytes(name + " has left the chatroom.", "utfg8"))
+            broadcast(bytes(name + " has left the chatroom.", "utf8"))
 
 
 def accept_client_connection():

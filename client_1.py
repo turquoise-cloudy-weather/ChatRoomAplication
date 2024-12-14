@@ -43,7 +43,7 @@ msg_list.pack()
 label = Label(window, text="Enter message: ", fg="blue", font='Aeria', bg="Lightblue")
 label.pack()
 
-entry_feed = Entry(window, textvariable=my_msg, fg="Lightblue", width=50)
+entry_feed = Entry(window, textvariable=my_msg, fg="lightblue", width=50)
 entry_feed.pack()
 
 send_Button =  Button(window, text = "Send", font = "Aerial", fg='White', command=send)
